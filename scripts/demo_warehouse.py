@@ -566,7 +566,9 @@ def main():
     res = grid.res
     extent = [grid.x0, grid.x0 + grid.nx * res, grid.y0, grid.y0 + grid.ny * res]
     fig, ax = plt.subplots(figsize=(7, 7))
-    ax.imshow(grid.image(), extent=extent, origin="lower", interpolation="nearest")
+    # grid.image() is already y-flipped (row 0 = max-y), so use origin="upper" to keep
+    # the map aligned with the world-coordinate routes (origin="lower" double-flips it).
+    ax.imshow(grid.image(), extent=extent, origin="upper", interpolation="nearest")
     rcols = ["#00cce8", "#f28200", "#f0d800", "#e62633", "#9b4ed8"]
     for ri, route in enumerate(all_routes):
         xs, ys = zip(*route)

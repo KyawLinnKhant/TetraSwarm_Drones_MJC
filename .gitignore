@@ -1,0 +1,28 @@
+# Secrets — never commit your API key
+.env
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+*.egg-info/
+
+# MuJoCo Menagerie git metadata (keep the model files, drop the .git)
+assets/menagerie_tmp/.git/
+
+# Large / scratch outputs (the README's GIFs + figures ARE committed)
+results/*.mp4
+results/*.csv
+results/.DS_Store
+results/figures/.DS_Store
+
+# ViPER upstream code + weights — NOT redistributed (clone from marmotlab/ViPER)
+external/
+
+# OS
+.DS_Store
+
+# Claude Code harness + logs
+.claude/
+MUJOCO_LOG.TXT
